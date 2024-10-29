@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyMauiApp.LoginFormPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#FF6B00">
+
+    <Grid RowDefinitions="Auto,*">
+        <!-- Top Section with Back Button and Logo -->
+        <Grid Grid.Row="0" RowDefinitions="Auto,Auto" Padding="20,40,20,0">
+            <!-- Back Button -->
+            <Button 
+                Grid.Row="0"
+                Text="←"
+                FontSize="24"
+                BackgroundColor="Transparent"
+                TextColor="White"
+                HeightRequest="40"
+                WidthRequest="40"
+                Padding="0"
+                HorizontalOptions="Start"
+                Clicked="OnBackClicked"/>
+
+            <!-- Logo and Title -->
+            <HorizontalStackLayout 
+                Grid.Row="0"
+                Spacing="15"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image 
+                    Source="login_logo.png"
+                    HeightRequest="80"
+                    WidthRequest="80"/>
+                <VerticalStackLayout Spacing="0">
+                    <Label 
+                        Text="INVENTORY"
+                        TextColor="White"
+                        FontSize="22"
+                        FontAttributes="Bold"/>
+                    <Label 
+                        Text="SYSTEM"
+                        TextColor="White"
+                        FontSize="22"
+                        FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+
+            <!-- Log In Title -->
+            <Label 
+                Grid.Row="1"
+                Text="Log In"
+                TextColor="White"
+                FontSize="24"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Margin="0,20,0,20"/>
+        </Grid>
+
+        <!-- White Background Section with Top Rounded Corners -->
+        <Border Grid.Row="1"
+                BackgroundColor="White"
+                StrokeThickness="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="30,30,0,0"/>
+            </Border.StrokeShape>
+            
+            <Grid RowSpacing="20" Padding="24,30,24,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <VerticalStackLayout Grid.Row="0" Spacing="20">
+                    <VerticalStackLayout Spacing="8">
+                        <Label 
+                            Text="Username or Email"
+                            TextColor="#0066CC"
+                            FontSize="14"
+                            FontAttributes="Bold"/>
+                        <Entry 
+                            x:Name="UsernameEntry"
+                            Placeholder="Enter username or email"
+                            BackgroundColor="#F5F5F5"
+                            HeightRequest="40"/>
+                    </VerticalStackLayout>
+
+                    <!-- Password Section -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label 
+                            Text="Password"
+                            TextColor="#0066CC"
+                            FontSize="14"
+                            FontAttributes="Bold"/>
+                        <Grid BackgroundColor="#F5F5F5" HeightRequest="40">
+                            <Entry 
+                                x:Name="PasswordEntry"
+                                Grid.Column="0"
+                                Placeholder="Enter password"
+                                IsPassword="{Binding IsPasswordHidden}"
+                                BackgroundColor="Transparent"
+                                HeightRequest="40"/>
+                            <Button
+                                Grid.Column="1"
+                                x:Name="ShowPasswordButton"
+                                Text="👁"
+                                FontSize="20"
+                                HeightRequest="40"
+                                WidthRequest="40"
+                                Margin="0"
+                                Clicked="OnShowPasswordClicked"
+                                BackgroundColor="Transparent"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End"/>
+                        </Grid>
+                    </VerticalStackLayout>
+
+                    <Button 
+                        Text="LOG IN"
+                        BackgroundColor="#FF6B00"
+                        TextColor="White"
+                        CornerRadius="8"
+                        HeightRequest="45"
+                        Margin="0,10,0,0"
+                        Clicked="OnLoginClicked"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout 
+                    Grid.Row="1"
+                    VerticalOptions="End"
+                    Margin="0,0,0,30">
+                    <Label HorizontalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Don't have an account? " 
+                                      TextColor="#666666"/>
+                                <Span Text="SIGN UP"
+                                      TextColor="#FF6B00"
+                                      FontAttributes="Bold">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnSignUpTapped"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>

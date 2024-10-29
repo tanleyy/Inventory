@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyMauiApp.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#FF6B00">  <!-- Set background col at ContentPage level -->
+    
+    <Grid RowSpacing="0">  <!-- Use Grid for full coverage -->
+        <VerticalStackLayout 
+            Padding="30,0" 
+            Spacing="25" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Fill">
+            
+            <Image 
+                Source="islog_logo.png"
+                HeightRequest="200"
+                WidthRequest="200"
+                HorizontalOptions="Center" />
+                
+            <Label 
+                Text="Welcome!"
+                FontSize="18"
+                HorizontalOptions="Center"
+                TextColor="White"/>
+
+            <Button 
+                Text="Log In"
+                Clicked="HandleLogin"
+                HorizontalOptions="Fill"
+                BackgroundColor="White"
+                TextColor="#FF6B00"
+                CornerRadius="8"
+                HeightRequest="45"
+                Margin="0,20,0,0"/>
+
+            <Button 
+                Text="SIGN UP"
+                Clicked="HandleSignUp"
+                HorizontalOptions="Fill"
+                BackgroundColor="Transparent"
+                TextColor="White"
+                BorderColor="White"
+                BorderWidth="1"
+                CornerRadius="8"
+                HeightRequest="45"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
